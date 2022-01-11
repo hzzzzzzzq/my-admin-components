@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
 
+import SearchBox from './components/SearchBox/searchBox';
+
 function App() {
+  const searchList = [
+    { key: 'input', label: 'input', type: 'INPUT', placeholder: '请输入姓名' },
+    {
+      key: 'select',
+      label: 'select',
+      type: 'SELECT',
+      options: [{ id: 1, name: '选择1' }],
+    },
+    {
+      key: 'checkBox',
+      label: 'chechBox',
+      type: 'CHECKBOX',
+    },
+    { key: 'RANGEPICKER', name: 'RANGEPICKER', type: 'RANGEPICKER' },
+  ];
+  const fields = {
+    input: '1',
+    select: 1,
+    checkBox: true,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <SearchBox searchList={searchList} fields={fields}></SearchBox>
     </div>
   );
 }
